@@ -83,7 +83,13 @@ class CustomCollector(object):
                 continue
             value = float(m.group('value'))
             value *= command.get('ratio', 1)
-            yield GaugeMetricFamily(metric, command.get('help', metric), value=value)
+            labels = command.get('labels', {})
+            if len(labels) > 0:
+                c = GaugeMetricFamily(metric, command.get('help', metric), labels=labels.keys())
+                c.add_metric(labels.values(), value)
+                yield(c)
+            else:
+                yield GaugeMetricFamily(metric, command.get('help', metric), value=value)
         tn.write(b"exit\n")
         tn.read_all()
 #        finally:
