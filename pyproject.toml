@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["leox_prometheus_exporter"]
+
+
+[project]
+name = "leox-prometheus-exporter"
+description = "Prometheus exporter for LEOX ONT's"
+readme = "README.md"
+license = {file = "LICENSE"}
+version = "0.0.1"
+dependencies = ["prometheus_client"]
+requires-python = "< 3.13"
+authors = [
+    { name = "Jérôme Loyet", email = "jerome@loyet.net" }
+]
+maintainers = [
+    { name = "Jérôme Loyet", email = "jerome@loyet.net" }
+]
+keywords = ["network", "prometheus", "exporter", "ont", "leox"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/fatpat/leox-prometheus-exporter"
+Documentation = "https://github.com/fatpat/leox-prometheus-exporter"
+Repository = "https://github.com/fatpat/leox-prometheus-exporter.git"
+Issues = "https://github.com/fatpat/leox-prometheus-exporter/issues"
+Changelog = "https://github.com/fatpat/leox-prometheus-exporter/blob/main/CHANGELOG.md"
+
+[project.scripts]
+leox-prometheus-exporter = "leox_prometheus_exporter.__main__:main"
