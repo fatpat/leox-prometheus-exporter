@@ -11,7 +11,7 @@ name = "leox-prometheus-exporter"
 description = "Prometheus exporter for LEOX ONT's"
 readme = "README.md"
 license = {file = "LICENSE"}
-version = "0.0.1"
+version = "0.0.2"
 dependencies = ["prometheus_client"]
 requires-python = "< 3.13"
 authors = [
