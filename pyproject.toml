@@ -12,8 +12,12 @@ description = "Prometheus exporter for LEOX ONT's"
 readme = "README.md"
 license = {file = "LICENSE"}
 version = "0.0.2"
-dependencies = ["prometheus_client"]
-requires-python = "< 3.13"
+dependencies = [
+    "prometheus_client",
+    "typer",
+    "requests",
+    "lxml"
+]
 authors = [
     { name = "Jérôme Loyet", email = "jerome@loyet.net" }
 ]
