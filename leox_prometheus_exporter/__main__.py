@@ -136,21 +136,22 @@ LEOX_HTTP_METRICS = [
         'regex': r'(?P<value>\d+(?:\.\d+)?)',
         'labels': {'direction': 'rx'},
     },
+
     {
-        'metric': 'pon_onu_state',
+        'metric': 'gpon_onu_state',
         'page': '/status_pon.asp',
         'xpath': '//th[child::text()="ONU State"]/../td/child::text()',
         'regex': r'^O(?P<value>\d+)$',
     },
 
     {
-        'metric': 'cpu_percent',
+        'metric': 'system_cpu_percent',
         'page': '/status.asp',
         'xpath': '//th[child::text()="CPU Usage"]/../td/child::text()',
         'regex': r'^(?P<value>\d+)%$',
     },
     {
-        'metric': 'memory_percent',
+        'metric': 'system_memory_percent',
         'page': '/status.asp',
         'xpath': '//th[child::text()="Memory Usage"]/../td/child::text()',
         'regex': r'^(?P<value>\d+)%$',
