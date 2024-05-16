@@ -118,22 +118,28 @@ LEOX_HTTP_METRICS = [
     {
         'metric': 'pon_transceiver_bias_current_amperes',
         'page': '/status_pon.asp',
-        'xpath': '//div[@class="data_common"]/table/tr/th[child::text()="Voltage"]/../td/child::text()',
+        'xpath': '//div[@class="data_common"]/table/tr/th[child::text()="Bias Current"]/../td/child::text()',
         'regex': r'(?P<value>\d+(?:\.\d+)?)',
         'ratio': 0.001,
+    },
+    {
+        'metric': 'pon_transceiver_voltage_volts',
+        'page': '/status_pon.asp',
+        'xpath': '//div[@class="data_common"]/table/tr/th[child::text()="Voltage"]/../td/child::text()',
+        'regex': r'(?P<value>\d+(?:\.\d+)?)',
     },
     {
         'metric': 'pon_transceiver_power_dbm',
         'page': '/status_pon.asp',
         'xpath': '//div[@class="data_common"]/table/tr/th[child::text()="Tx Power"]/../td/child::text()',
-        'regex': r'(?P<value>\d+(?:\.\d+)?)',
+        'regex': r'(?P<value>-?\d+(?:\.\d+)?)',
         'labels': {'direction': 'tx'},
     },
     {
         'metric': 'pon_transceiver_power_dbm',
         'page': '/status_pon.asp',
         'xpath': '//div[@class="data_common"]/table/tr/th[child::text()="Rx Power"]/../td/child::text()',
-        'regex': r'(?P<value>\d+(?:\.\d+)?)',
+        'regex': r'(?P<value>-?\d+(?:\.\d+)?)',
         'labels': {'direction': 'rx'},
     },
 
