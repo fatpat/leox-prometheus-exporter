@@ -198,7 +198,7 @@ class CustomCollector(object):
                 # get page from cache or request leox
                 tree = pages.get(page, None)
                 if tree is None:
-                    log.info(f"scrapping page {page}")
+                    log.debug(f"scrapping page {page}")
                     resp = requests.get(f"http://{self.leox_login}:{self.leox_password}@{self.leox_ip}:{self.leox_port}{page}")
                     if resp.status_code != 200:
                         log.error(f"[{metric}] page {page} returned {resp.status_code}, skipping")
@@ -208,7 +208,6 @@ class CustomCollector(object):
 
                 # extract value
                 value = tree.xpath(xpath)
-                log.debug(value)
                 value = value[0]
                 regex = conf.get('regex', None)
                 if regex is not None:
@@ -222,7 +221,7 @@ class CustomCollector(object):
                 value = float(value)
                 # apply ratio
                 value *= conf.get('ratio', 1)
-                log.info(f"[{metric}] value={value}")
+                log.debug(f"[{metric}] value={value}")
 
                 # send metrics
                 labels = conf.get('labels', {})
